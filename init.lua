@@ -7,9 +7,15 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
+-- Set path for neovim's python venv
+vim.g.python_host_prog = '~/dev/python/neovim/venv/bin/python'
+vim.g.python3_host_prog = '~/dev/python/neovim/venv/bin/python'
+
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 
+-- Do not expand tabs to spaces
+vim.opt.expandtab = false
 -- Number of spaces to use for tab
 vim.opt.tabstop = 2
 vim.opt.smartindent = true
@@ -694,6 +700,11 @@ require('lazy').setup({
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     'ellisonleao/gruvbox.nvim',
+    opts = {
+      overrides = {
+        ['Comment'] = { fg = '#a89984' },
+      },
+    },
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
